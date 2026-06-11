@@ -4,8 +4,20 @@
   box-sizing: border-box;
 }
 
+:root {
+  --flonne-mix: 0%;
+  --flonne-angel-1: #06090e;
+  --flonne-angel-2: #021533;
+  --flonne-demon-1: #0c0303;
+  --flonne-demon-2: #4a0000;
+  --flonne-angel-accent: #82b1ff;
+  --flonne-demon-accent: #ff5252;
+  --flonne-angel-muted: #000916;
+  --flonne-demon-muted: #160000;
+}
+
 body {
-  background: blue;
+  background: color-mix(in srgb, var(--flonne-demon-muted) var(--flonne-mix), var(--flonne-angel-muted));
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
@@ -22,6 +34,13 @@ main {
   width: 100%;
   height: calc(4093px - 350px);
   overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--flonne-demon-1) var(--flonne-mix), var(--flonne-angel-1)),
+    color-mix(in srgb, var(--flonne-demon-2) var(--flonne-mix), var(--flonne-angel-2))
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .flonne-stage img {
@@ -52,20 +71,29 @@ main {
 }
 
 .flonne-range-wrap {
-  display: flex;
+  position: relative;
+  width: 8px;
+  height: 160px;
 }
 
 .flonne-range-wrap input[type="range"] {
-  writing-mode: vertical-lr;
-  direction: rtl;
-  width: 8px;
-  height: 160px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 8px;
+  margin: 0;
+  transform: translate(-50%, -50%) rotate(-90deg);
 }
 
 .flonne-content {
   position: relative;
   margin-top: -60px;
   padding: 80px 24px 120px;
-  background: rgba(0, 0, 0, 0.6);
+  background: color-mix(in srgb, var(--flonne-demon-muted) var(--flonne-mix), var(--flonne-angel-muted));
   color: #fff;
+}
+
+.flonne-content h1 {
+  color: color-mix(in srgb, var(--flonne-demon-accent) var(--flonne-mix), var(--flonne-angel-accent));
 }

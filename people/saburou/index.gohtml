@@ -16,7 +16,7 @@
       <div class="flonne-slider">
         <span class="flonne-label flonne-label-top">天使</span>
         <div class="flonne-range-wrap">
-          <input type="range" id="flonneRange" min="0" max="100" value="0" step="1" />
+          <input type="range" id="flonneRange" min="0" max="100" value="100" step="1" />
         </div>
         <span class="flonne-label flonne-label-bottom">悪魔</span>
       </div>
@@ -33,11 +33,16 @@
         function flonneOpacityHandler() {
           var blue = document.querySelector(".flonne-blue");
           var red = document.querySelector(".flonne-red");
-          var red_opacity = flonneRange.value / 100;
-          var blue_opacity = (100 - flonneRange.value) / 100;
+          var blue_opacity = flonneRange.value / 100;
+          var red_opacity = (100 - flonneRange.value) / 100;
 
-          red.style.opacity = red_opacity;
           blue.style.opacity = blue_opacity;
+          red.style.opacity = red_opacity;
+
+          document.documentElement.style.setProperty(
+            "--flonne-mix",
+            red_opacity * 100 + "%"
+          );
         }
 
         flonneRange.addEventListener("input", flonneOpacityHandler);
