@@ -97,3 +97,49 @@ main {
 .flonne-content h1 {
   color: color-mix(in srgb, var(--flonne-demon-accent) var(--flonne-mix), var(--flonne-angel-accent));
 }
+
+.thanks-list {
+  max-width: 1200px;
+  width: 100%;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.thanks-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.thanks-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid color-mix(in srgb, var(--flonne-demon-accent) var(--flonne-mix), var(--flonne-angel-accent));
+}
+
+.thanks-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.thanks-name {
+  font-size: 1.25rem;
+}
+
+.thanks-message {
+  opacity: 0.9;
+}
+
+.thanks-url {
+  color: color-mix(in srgb, var(--flonne-demon-accent) var(--flonne-mix), var(--flonne-angel-accent));
+  font-size: 0.9rem;
+}
