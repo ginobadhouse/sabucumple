@@ -13,7 +13,7 @@ var indexHTML string
 //go:embed assets/styles.css
 var stylesCSS []byte
 
-//go:embed assets/flonne_blue_curr.png assets/flonne_red_curr.png
+//go:embed assets/flonne_blue.png assets/flonne_red.png
 var assets embed.FS
 
 type Module struct{}
@@ -30,8 +30,8 @@ func (Module) Register(g *echo.Group) {
 	g.GET("/", home)
 	g.GET("", home)
 	g.GET("/styles.css", serveCSS)
-	g.GET("/assets/flonne_blue_curr.png", serveImage("assets/flonne_blue_curr.png"))
-	g.GET("/assets/flonne_red_curr.png", serveImage("assets/flonne_red_curr.png"))
+	g.GET("/assets/flonne_blue.png", serveImage("assets/flonne_blue.png"))
+	g.GET("/assets/flonne_red.png", serveImage("assets/flonne_red.png"))
 }
 
 func home(c *echo.Context) error {
