@@ -39,7 +39,6 @@ func main() {
 
     // Placeholder para que /chavsi no pete aunque Register esté vacío.
     g.GET("", placeholder(m.Endpoint()))
-    g.GET("/", placeholder(m.Endpoint()))
 
     // Rutas propias de cada persona.
     m.Register(g)

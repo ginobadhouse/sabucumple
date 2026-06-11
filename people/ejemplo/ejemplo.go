@@ -19,7 +19,7 @@ func (Module) Endpoint() string {
 }
 
 func (Module) Register(g *echo.Group) {
-  g.GET("", home)
+  g.GET("/", home)
   g.GET("/otro", otro)
 }
 
