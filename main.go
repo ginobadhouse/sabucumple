@@ -8,9 +8,10 @@ import (
   "github.com/labstack/echo/v5"
 
   "github.com/heizeisaburou/sabucumple/module"
-  "github.com/heizeisaburou/sabucumple/people/ejemplo"
-  "github.com/heizeisaburou/sabucumple/people/midos"
-  "github.com/heizeisaburou/sabucumple/people/savage"
+	"github.com/heizeisaburou/sabucumple/people/ejemplo"
+	"github.com/heizeisaburou/sabucumple/people/midos"
+	"github.com/heizeisaburou/sabucumple/people/savage"
+	"github.com/heizeisaburou/sabucumple/people/chavsi"
 )
 
 func main() {
@@ -20,7 +21,9 @@ func main() {
     ejemplo.New(),
     midos.New(),
     savage.New(),
+    chavsi.New(),
   }
+
 
 
   e.GET("/", func(c *echo.Context) error {
