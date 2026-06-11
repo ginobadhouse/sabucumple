@@ -23,19 +23,18 @@
 
       <section class="flonne-content">
         <div class="thanks-list">
+          {{range .Thanks}}
           <article class="thanks-card">
-            <img class="thanks-avatar" src="/saburou/assets/saburou.png" alt="Saburou" />
+            <img class="thanks-avatar" src="/saburou/assets/{{.Image}}" alt="{{.Name}}" />
             <div class="thanks-body">
-              <h2 class="thanks-name">Saburou</h2>
-              <p class="thanks-message">
-                ¡Gracias por currarte tanto este proyecto, ha sido un placer
-                acompañarte!
-              </p>
-              <a class="thanks-url" href="https://github.com/heizeisaburou" target="_blank" rel="noopener noreferrer">
-                github.com/heizeisaburou
-              </a>
+              <h2 class="thanks-name">{{.Name}}</h2>
+              <p class="thanks-message">{{.Message}}</p>
+              {{if .URL}}
+              <a class="thanks-url" href="{{.URL}}" target="_blank" rel="noopener noreferrer">{{.URL}}</a>
+              {{end}}
             </div>
           </article>
+          {{end}}
         </div>
       </section>
     </main>
