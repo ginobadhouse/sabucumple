@@ -56,7 +56,7 @@ var thanks = []Person{
 	{
 		Name:   "Killa",
 		Image:  "killa.png",
-		Message: "Gracias por existir y por conseguir nuevamente que mi cumple sea algo inesperadamente grande.",
+		Message: "Gracias por existir y por conseguir nuevamente que mi cumple sea algo inesperadamente grande. Te quiero mucho <3",
 		Active: true,
 	},
 	{
@@ -77,7 +77,7 @@ var thanks = []Person{
 		Name:    "Savage",
 		Image:   "savage.png",
 		Message: "Gracias a evitar que pierda el timepo convenciendome de no hacer implementaciones imposibles en go.",
-		URL:     "https://github.com/lucas-vokol",
+		URL:     "https://github.com/lsproule",
 		Active:  true,
 	},
 }
