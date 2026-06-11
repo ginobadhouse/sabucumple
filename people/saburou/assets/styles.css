@@ -143,3 +143,14 @@ main {
   color: color-mix(in srgb, var(--flonne-demon-accent) var(--flonne-mix), var(--flonne-angel-accent));
   font-size: 0.9rem;
 }
+
+.thanks-endpoint {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--flonne-demon-accent) var(--flonne-mix), var(--flonne-angel-accent));
+  color: #fff;
+  font-size: 0.85rem;
+  text-decoration: none;
+}

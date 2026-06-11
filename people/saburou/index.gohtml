@@ -32,6 +32,9 @@
               {{if .URL}}
               <a class="thanks-url" href="{{.URL}}" target="_blank" rel="noopener noreferrer">{{.URL}}</a>
               {{end}}
+              {{if .Endpoint}}
+              <a class="thanks-endpoint" href="{{.Endpoint}}">Visitar su página →</a>
+              {{end}}
             </div>
           </article>
           {{end}}
