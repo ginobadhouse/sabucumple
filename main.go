@@ -1,51 +1,57 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
-	"strings"
+  "fmt"
+  "net/http"
+  "strings"
 
-	"github.com/labstack/echo/v5"
+  "github.com/labstack/echo/v5"
 
-	"github.com/heizeisaburou/sabucumple/module"
+  "github.com/heizeisaburou/sabucumple/module"
 	"github.com/heizeisaburou/sabucumple/people/ejemplo"
+	"github.com/heizeisaburou/sabucumple/people/midos"
+	"github.com/heizeisaburou/sabucumple/people/savage"
 	"github.com/heizeisaburou/sabucumple/people/chavsi"
 )
 
 func main() {
-	e := echo.New()
+  e := echo.New()
 
-	modules := []module.Module{
-		ejemplo.New(),
-		chavsi.New(),
-	}
+  modules := []module.Module{
+    ejemplo.New(),
+    midos.New(),
+    savage.New(),
+    chavsi.New(),
+  }
 
-	e.GET("/", func(c *echo.Context) error {
-		var html strings.Builder
 
-		html.WriteString(`
-			<h1>Cumple 🎂</h1>
-			<ul>
-		`)
 
-		for _, m := range modules {
-			html.WriteString(`<li><a href="/` + m.Endpoint() + `/">` + m.Endpoint() + `</a></li>`)
-		}
+  e.GET("/", func(c *echo.Context) error {
+    var html strings.Builder
 
-		html.WriteString(`</ul>`)
+    html.WriteString(`
+      <h1>Cumple 🎂</h1>
+      <ul>
+    `)
 
-		return c.HTML(http.StatusOK, html.String())
-	})
+    for _, m := range modules {
+      html.WriteString(`<li><a href="/` + m.Endpoint() + `/">` + m.Endpoint() + `</a></li>`)
+    }
 
-	for _, m := range modules {
-		g := e.Group("/" + m.Endpoint())
+    html.WriteString(`</ul>`)
 
-		// Rutas propias de cada persona.
-		m.Register(g)
-	}
+    return c.HTML(http.StatusOK, html.String())
+  })
 
-	e.Static("/static", "static")
+  for _, m := range modules {
+    g := e.Group("/" + m.Endpoint())
 
-	fmt.Println("Servidor escuchando en http://localhost:8080")
-	e.Start(":8080")
+    // Rutas propias de cada persona.
+    m.Register(g)
+  }
+
+  e.Static("/static", "static")
+
+  fmt.Println("Servidor escuchando en http://localhost:8080")
+  e.Start(":8080")
 }
